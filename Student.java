@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Student {
-    private int phoneNumber;
-    private String name;
-    private int age;
-    private int studentId;
+    private final long phoneNumber;
+    private final String name;
+    private final int age;
+    private final long studentId;
     private int fine;
-    private Map<Integer, Book> borrowedBooks = new HashMap<>();
+    private final Map<Integer, Book> borrowedBooks = new HashMap<>();
 
-    public Student(int studentId, String name, int age, int phoneNumber) {
+    public Student(long studentId, String name, int age, long phoneNumber) {
         this.studentId = studentId;
         this.name = name;
         this.age = age;
@@ -82,7 +82,7 @@ public class Student {
     }
 
     // Getters and setters for private fields (if needed)
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -97,7 +97,7 @@ public class Student {
         return name;
     }
 
-    public int getStudentId() {
+    public long getStudentId() {
         return studentId;
     }
 

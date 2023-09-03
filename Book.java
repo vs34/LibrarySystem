@@ -32,11 +32,11 @@ public class Book {
         Duration timeDifference = Duration.between(borrowTime, LocalTime.now());
         double secondsLate = timeDifference.getSeconds(); // Time difference in seconds
 
-        if (secondsLate < 600) { // 10 minutes converted to seconds
+        if (secondsLate < 10) { // 10 converted to seconds
             return 0;
         }
 
-        return (secondsLate - 600) * 10; // Fine calculation in seconds
+        return (secondsLate - 10) * 10; // Fine calculation in seconds
     }
 
     public void returnBook(Student student) {
@@ -46,12 +46,12 @@ public class Book {
             Duration timeDifference = Duration.between(borrowTime, LocalTime.now());
             double secondsLate = timeDifference.getSeconds(); // Time difference in seconds
 
-            if (secondsLate < 600) { // 10 minutes converted to seconds
+            if (secondsLate < 10) { // 10 second converted to seconds
                 this.borrower = null;
                 this.borrowTime = null;
                 System.out.println("Book returned.");
             } else {
-                double fine = (secondsLate - 600) * 10; // Fine calculation in seconds
+                double fine = (secondsLate - 10) * 10; // Fine calculation in seconds
                 student.setFine((int) (student.getFine() + fine));
                 System.out.println("Late return fine of " + fine + " added. Total fine: " + student.getFine());
             }
@@ -59,7 +59,7 @@ public class Book {
     }
 
     public void refresh_borrower_time() {
-        this.borrowTime = LocalTime.now();
+        this.borrowTime = LocalTime.now().minusSeconds(10);
     }
 
     public void printInfo() {

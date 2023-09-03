@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Admin {
-    private Map<Integer, Student> members = new HashMap<>();
+    private Map<Long, Student> members = new HashMap<>();
     private Map<Integer, Book> books = new HashMap<>();
     private int maxBookId = 1;
 
-    public void addMember(String name, int age, int studentId) {
+    public void addMember(String name, int age, long studentId) {
         if (!members.containsKey(studentId)) {
-            Student student = new Student(studentId, name, age, 0);
+            Student student = new Student(studentId, name, age, studentId);
             members.put(studentId, student);
             System.out.println("Member Successfully Registered with Student ID: " + student.getStudentId());
         } else {
@@ -18,7 +18,7 @@ public class Admin {
         }
     }
 
-    public void removeMember(int studentId) {
+    public void removeMember(long studentId) {
         if (members.containsKey(studentId)) {
             System.out.println("Member Successfully Removed with Student ID: " + studentId);
             members.remove(studentId);
@@ -52,7 +52,9 @@ public class Admin {
         }
     }
 
-    public Student member_login(String name, int ph_no, int studentId) {
+
+    public Student member_login(String name, long ph_no, Long studentId) {
+
         if (members.containsKey(studentId)) {
             Student student = members.get(studentId);
             if (student.getName().equals(name) && student.getPhoneNumber() == ph_no) {
@@ -73,6 +75,14 @@ public class Admin {
         System.out.println("Books:");
         for (Book book : books.values()) {
             book.printInfo();
+        }
+    }
+    public void printABooks() {
+        System.out.println("Books:");
+        for (Book book : books.values()) {
+            if (book.getBorrower() == null) {
+                book.printInfo();
+            }
         }
     }
 }
