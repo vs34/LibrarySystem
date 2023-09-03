@@ -201,16 +201,3 @@ The `pom.xml` file is a configuration file used in Maven-based projects to defin
 2. **Artifact ID**: `<artifactId>` specifies the name of the project or artifact. It is set to `library` in this example, indicating that this Maven project is named "library."
 
 3. **Version**: `<version>` defines the version number of the project. It is set to `1.0-SNAPSHOT` here but should be updated as you make changes and releases to your project.
-
-### Project Properties
-
-4. **Java Compiler Version**: `<maven.compiler.source>` and `<maven.compiler.target>` specify the source and target compatibility versions for the Java compiler used in the project. In this case, it's set to Java 11, which means the project is configured to work with Java 11 source code.
-
-5. **Source Encoding**: `<project.build.sourceEncoding>` specifies the character encoding for the project's source files. It is set to UTF-8, which is a common encoding for handling various character sets.
-
-### Dependencies (Not Included)
-
-In a typical Maven project, you would also include dependencies within the `pom.xml` file. Dependencies are external libraries or modules that your project relies on. You would define them in the `<dependencies>` section of this file. However, since your provided `pom.xml` does not include any dependencies, you may need to add them as your project requires.
-
-The `pom.xml` file plays a crucial role in managing your project's build process, including compilation, testing, packaging, and dependency management. It ensures that your project is built consistently and can be easily shared with others for collaboration or distribution.
-
